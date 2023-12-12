@@ -1,0 +1,12 @@
+@use "../abstracts/_all" as abst
+    
+.galaxy
+    background-color: black
+    background-image: url("../images/space.png")
+    background-position: center
+    background-size: cover
+    display: flex
+    align-items: center
+    height: 100vh
+    gap: abst.$gap-between-planet
+    margin-left: calc( 50vw - (abst.$sun-size / 2 ))

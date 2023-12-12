@@ -1,0 +1,67 @@
+@use "../abstracts/_all" as abst
+@use "sass:math"
+@use "sass:map"
+
+$list-planets: 'mercure', 'venus', 'terre', 'mars', 'jupiter', 'saturne', 'uranus', 'neptune'
+$planets-size: ("mercure": #{abst.$mercure-size}, "venus": #{abst.$venus-size}, "terre": #{abst.$terre-size}, "mars": #{abst.$mars-size}, "jupiter": #{abst.$jupiter-size}, "saturne": #{abst.$saturne-size}, "uranus": #{abst.$uranus-size}, "neptune": #{abst.$neptune-size})
+
+.planet
+
+    @each $planet in $list-planets
+        &--#{$planet}
+            $background-planet: "../images/#{$planet}.png"
+            $size-planet: map.get($planets-size, $planet)
+            @include abst.circle($size-planet, $background-planet)
+            background-position: center
+            background-size: cover
+
+    &--mercure
+        $distance-between-mercure-sun: abst.$gap-between-planet
+        @include abst.rotate-around-sun($distance-between-mercure-sun, abst.$mercure-size, 9s)
+
+    &--venus
+        $distance-between-venus-sun: 2 * abst.$gap-between-planet + abst.$mercure-size
+        @include abst.rotate-around-sun($distance-between-venus-sun, abst.$venus-size, 24s)
+
+    &--terre
+        $background: "../images/earth.png" 
+        @include abst.circle(abst.$terre-size, $background)
+        $distance-between-terre-sun: 3 * abst.$gap-between-planet + abst.$mercure-size + abst.$venus-size
+        @include abst.rotate-around-sun($distance-between-terre-sun, abst.$terre-size, 36s)
+        position: relative
+
+    &--mars
+        $background: "../images/mars.png" 
+        @include abst.circle(abst.$mars-size, $background)
+        $distance-between-mars-sun: 4 * abst.$gap-between-planet + abst.$mercure-size + abst.$venus-size + abst.$terre-size
+        @include abst.rotate-around-sun($distance-between-mars-sun, abst.$mars-size, 69s)
+        position: relative
+
+    &--jupiter
+        $distance-between-jupiter-sun: 5 * abst.$gap-between-planet + abst.$mercure-size + abst.$venus-size + abst.$terre-size + abst.$mars-size
+        @include abst.rotate-around-sun($distance-between-jupiter-sun, abst.$jupiter-size, 420s)
+
+    &--saturne
+        $background: "../images/saturne.png"
+        background: no-repeat
+        background-position: center
+        background-size: contain
+        @include abst.circle(abst.$saturne-size, $background)
+        $distance-between-saturne-sun: 6 * abst.$gap-between-planet + abst.$mercure-size + abst.$venus-size + abst.$terre-size + abst.$mars-size + abst.$jupiter-size
+        @include abst.rotate-around-sun($distance-between-saturne-sun, abst.$saturne-size, 1050s)
+
+    &--uranus
+        $distance-between-uranus-sun: 7 * abst.$gap-between-planet + abst.$mercure-size + abst.$venus-size + abst.$terre-size + abst.$mars-size + abst.$jupiter-size + abst.$saturne-size
+        @include abst.rotate-around-sun($distance-between-uranus-sun, abst.$uranus-size, 2975s)
+
+
+    &--neptune
+        $distance-between-neptune-sun: 8 * abst.$gap-between-planet + abst.$mercure-size + abst.$venus-size + abst.$terre-size + abst.$mars-size + abst.$jupiter-size + abst.$saturne-size + abst.$uranus-size
+        @include abst.rotate-around-sun($distance-between-neptune-sun, abst.$neptune-size, 5775s)
+
+// @keyframes animation-rotate
+//     0%
+//         transform: rotate(0)
+
+//     100%
+//         transform: rotate(360deg)

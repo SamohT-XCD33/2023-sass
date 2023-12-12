@@ -1,0 +1,9 @@
+@use "../abstracts/_all" as abst
+
+.sun
+    // border-image: adjust
+    $background: "../images/sun.png"
+    background: no-repeat
+    background-position: center
+    background-size: contain
+    @include abst.circle(abst.$sun-size, $background)

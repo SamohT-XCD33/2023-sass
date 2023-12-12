@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/* Main.sass
+ *
+ * Fichier principal qui va importer les autres fichiers.
+ * Stucture 7 - 1 = un fichier qui gère 7 dossiers. 
+ * lors des imports :
+ * - reset
+ * - vendors
+ * - pages
+ * - themes
+ * - layouts
+ * - components*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes animation-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*taille des planètes
+ * taille de la terre c'est 100px de diamètre
+ * calculer la taille des autres : 
+ * mercure 2.6 plus petite
+ * venus 1.1 plus petite*/
+.galaxy {
+  background-color: black;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
+  margin-left: calc(50vw - 100px);
+}
+
+.planet {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  background-color: grey;
+  flex-shrink: 0;
+}
+.planet--mercure {
+  border-radius: 100%;
+  width: 38.4615384615px;
+  height: 38.4615384615px;
+  background-color: red;
+  flex-shrink: 0;
+  transform-origin: -120px 19.2307692308px;
+  animation: animation-rotate 10s linear infinite;
+}
+.planet--venus {
+  border-radius: 100%;
+  width: 90.9090909091px;
+  height: 90.9090909091px;
+  background-color: brown;
+  flex-shrink: 0;
+  transform-origin: -178.4615384615px 45.4545454545px;
+  animation: animation-rotate 15s linear infinite;
+}
+.planet--terre {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  flex-shrink: 0;
+  transform-origin: -289.3706293706px 50px;
+  animation: animation-rotate 24s linear infinite;
+  position: relative;
+}
+.planet--mars {
+  border-radius: 100%;
+  width: 52.6315789474px;
+  height: 52.6315789474px;
+  background-color: grey;
+  flex-shrink: 0;
+  transform-origin: -409.3706293706px 26.3157894737px;
+  animation: animation-rotate 12s linear infinite;
+  position: relative;
+}
+.planet--jupiter {
+  border-radius: 100%;
+  width: 110px;
+  height: 110px;
+  background-color: orange;
+  flex-shrink: 0;
+  transform-origin: -482.002208318px 55px;
+  animation: animation-rotate 60s linear infinite;
+}
+.planet--saturne {
+  border-radius: 100%;
+  width: 250px;
+  height: 250px;
+  background-color: purple;
+  flex-shrink: 0;
+  transform-origin: -612.002208318px 125px;
+  animation: animation-rotate 120s linear infinite;
+}
+.planet--uranus {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  flex-shrink: 0;
+  transform-origin: -882.002208318px 100px;
+  animation: animation-rotate 90s linear infinite;
+}
+.planet--neptune {
+  border-radius: 100%;
+  width: 190px;
+  height: 190px;
+  background-color: green;
+  flex-shrink: 0;
+  transform-origin: -1102.002208318px 95px;
+  animation: animation-rotate 30s linear infinite;
+}
+
+.satellite, .satellite--deimos, .satellite--phobos, .satellite--moon {
+  background-color: red;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -50%;
+  color: white;
+}
+.satellite--moon {
+  background: grey;
+  transform-origin: 50% calc(50% + 50px);
+  animation: animation-rotate 5s linear infinite;
+}
+.satellite--phobos {
+  background-color: white;
+  transform-origin: 50% calc(50% + 26.3157894737px);
+  animation: animation-rotate 5s linear infinite;
+}
+.satellite--deimos {
+  background-color: purple;
+  transform-origin: 50% calc(50% + 26.3157894737px);
+  animation: animation-rotate 5s linear infinite;
+}
+
+.sun {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  flex-shrink: 0;
+  color: white;
+}/*# sourceMappingURL=main.css.map */

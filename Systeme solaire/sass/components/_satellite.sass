@@ -1,0 +1,51 @@
+
+@use "../abstracts/_all" as abst
+// @use "sass:map"
+
+// $list-satellite: "lune", "phobos", "deimos"
+// $satellite-size: ("lune": #{abst.$lune-size})
+
+.satellite
+
+    // @each $satellite in $list-satellite
+    // Fais ce block CSS
+        // &--#{$satellite}
+        //     $background-satellite: "../images/#{$satellite}.png"
+        //     $size-planet: map.get($planets-size, $planet)
+
+    
+    // background-color: red
+    width: abst.$satellite-size
+    height: abst.$satellite-size
+    border-radius: 100%
+    position: absolute
+    top: 0
+    left: 50%
+    translate: -50% -50%
+    color: white
+
+
+    &--moon
+        @extend .satellite
+        background-image: url("../images/lune.png")
+        background-position: center
+        background-size: contain
+        // background-color: grey
+        // $size-satellite: map.get($satellite-size, $satellite)
+        @include abst.rotate-around-planet($planet-size: abst.$terre-size)
+
+    &--phobos
+        @extend .satellite
+        background-image: url("../images/phobos.png")
+        background-position: center
+        background-size: contain
+        // $background: "../images/phobos.png"
+        @include abst.rotate-around-planet($planet-size: abst.$mars-size, $duration: 2s)
+
+    &--deimos
+        @extend .satellite
+        background-image: url("../images/deimos.png")
+        background-position: center
+        background-size: contain
+        // $background: "../images/deimos.png"
+        @include abst.rotate-around-planet($planet-size: abst.$mars-size, $duration: 1s)
